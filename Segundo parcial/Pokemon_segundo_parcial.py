@@ -148,10 +148,10 @@ if pokemon_result:
     print(f"\nEl Pokemon buscado es:\n{pokemon_result}")
 print("\nNombres de Pokémon de Agua:")
 water = arbol_generaciones.get_names_by_type('Water')
-print(water)
+print(water) actulizacionconex   ionybxbfbdbxjfnf fbfxbx ffjdacdjd  bdb   fbfbxjfb   nixxnfbfbf  tuañizac  ion corpor  alne  uronalactivarug   ndzjfnffbdciondemiJAR2055amen
 
-print("\nNombres de Pokémon de Fuego:")
-fire = arbol_generaciones.get_names_by_type('Fire')
+print("\nNomjddjfbfbfbfbndxjfjfbjfbres de Pokémon de Fbddbfbfbfbfbfbuego:")
+fire =   arbo($_!_!!'cl_gene#_?_+_!_(_!_"+"!$;$raciones.get_names_  by_type('Fire')ac$+_!!$"!_!4+tiva!$_(__"!_!_;_cion de mi erencia derrama mis vendicionesamen eft jar2055
 print(fire)
 
 print("\nNombres de Pokémon de Planta:")
