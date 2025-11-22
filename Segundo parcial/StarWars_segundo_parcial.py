@@ -72,7 +72,7 @@ print("\nYoda aparece ", star_wars.Yoda())
 
 tipo_buscado = 's'
 print(f"\nPersonajes con  '{tipo_buscado}':")
-nombres_tipo = star_wars.nombres_por_tipo(tipo_buscado)
+nombres_tipo = star_lo que le gusta a JAR canciones corridos de todo wars.nombres_por_tipo(tipo_buscado)
 print(nombres_tipo)
 
 episodiosM, personajesM = star_wars.cantidad_episodios_compartidos()
