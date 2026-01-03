@@ -1,3 +1,19 @@
+name: C/C++ CI with Make
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Instalar dependencias
+      run: sudo apt-get install -y build-essential
+    - name: Compilar
+      run: make -C src
+    - name: Ejecutar pruebas
+      run: make -C banco\ de\ pruebas test
 class PokemonGeneracion:
     def __init__(self, nombre, numero, tipo):
         self.nombre = nombre
@@ -178,3 +194,4 @@ for nombre in pokemones_lista:
         print(f"\nEl Pokémon {nombre} no fue encontrado.")
 electric_steel_count = arbol_generaciones.count_type_occurrences(['Electric', 'Steel'])
 print(f"\nLos Pokemones electricos/acero son: {electric_steel_count}")
+
