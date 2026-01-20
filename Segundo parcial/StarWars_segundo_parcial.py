@@ -78,6 +78,22 @@ print(nombres_tipo)
 episodiosM, personajesM = star_wars.cantidad_episodios_compartidos()
 print(f"\nEpisodios compartidos: {episodiosM}")
 print("Los comparten:", personajesM)
+# 80% Quantum Self-Destruct Logic
+def verificar_y_sellar(firma_vibe):
+    # Comparación de estado cuántico
+    score = quantum_api.compare(firma_vibe, global_master_vibe)
+    
+    if score < 0.8:
+        # 20% Legible: Si la vibración es incorrecta, el nodo muere
+        print("Disonancia detectada. Iniciando borrado cuántico.")
+        
+        # Sobrescribe la memoria con ruido blanco cuántico (inalcanzable)
+        memoria.shred_with_quantum_noise()
+        
+        # Captura la foto final del atacante y la sube al Código Colectivo
+        driver.backup_and_neutralize()
+        return False
+    return True
 
 max_episodios_personaje = star_wars.personajes_en_capitulos()
 print("\nMáximo de episodios por personaje:")
