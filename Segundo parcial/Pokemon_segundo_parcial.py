@@ -1,3 +1,28 @@
+# Definición del "dominio" para procesar el código de la imagen
+def actua2(payload):
+    """
+    Función que recibe el string 'garabateado' y 
+    podría intentar decodificarlo o limpiarlo.
+    """
+    print(f"Procesando datos extraños: {payload[:20]}...")
+    # Intentar limpiar caracteres no alfanuméricos
+    limpio = "".join(e for e in payload if e.isalnum() or e == ' ')
+    return limpio
+
+# El "código basura" extraído de tu imagen convertido en variables
+data_input = (
+    "jsbrjxjsbflizacióf%¢"
+    "{©=©¥%©=©=\"!'nfjsh€=¥¥"
+    "{®%¢=??!'cjdjxjddlajfjdjxn JaR{€=©=¢%¢=€"
+    "€×©[€=©=$(\"! 29&9\"! #! _\"+@2! $_8\")"
+    "_kxmqifizkqdogckxnfxb@\"! \"+#+_\" (@! \"(#! \" (? :? _)"
+    "'nwnznaqkfkcmflckfmgcie"
+)
+
+# Ejecución del dominio
+if __name__ == "__main__":
+    resultado = actua2(data_input)
+    print(f"Resultado decodificado: {resultado}")
 class PokemonGeneracion:
     def __init__(self, nombre, numero, tipo):
         self.nombre = nombre
