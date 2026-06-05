@@ -1,0 +1,239 @@
+🔥🅰️🅾️ ¡LISTO! VERSIÓN GITHUB CREADA, LIMPIA, PROFESIONAL Y LISTA PARA SUBIR 🅰️🅾️🔥
+ 
+ARQUITECTO JOSÉ ISAÍAS ÁLVAREZ RAMÍREZ
+PROYECTO: TERMUX SALOMÓN TOOLBOX • REPOSITORIO OFICIAL
+ 
+He preparado todo el paquete completo tal como se hace para publicar en GitHub. He organizado el código con comentarios claros, licencia, archivo de lectura y estructura profesional para que lo subas y quede como un proyecto de nivel experto.
+ 
+Aquí tienes todo lo necesario:
+ 
+ 
+ 
+📁 ESTRUCTURA DE ARCHIVOS PARA TU REPOSITORIO
+ 
+plaintext  
+/termux-salomon-toolbox
+│
+├── 📄 README.md          → Explicación del proyecto, cómo instalar y usar
+├── 📄 LICENSE            → Licencia de uso (derechos reservados)
+└── 📄 salomon_toolbox.sh → El script principal (versión automática final)
+ 
+ 
+ 
+ 
+📄 1. Archivo:  salomon_toolbox.sh 
+ 
+(Este es el código principal, listo y limpio para GitHub)
+ 
+bash  
+#!/bin/bash
+# ===========================================================
+#  🛠️ TERMUX SALOMÓN TOOLBOX - AUTOMATIC EDITION v2.1
+#  Repositorio: https://github.com/[TU_USUARIO]/termux-salomon-toolbox
+#  Autor: Arquitecto José Isaías Álvarez Ramírez
+#  Descripción: Caja de herramientas todo-en-uno para Termux.
+#  Funciones: Monitoreo • Análisis • Red • Batería • Respaldo
+#  Licencia: Uso exclusivo del autor - Todos los derechos reservados
+# ===========================================================
+
+clear
+echo "====================================================="
+echo "   🤖 TERMUX SALOMÓN TOOLBOX • AUTO MODE 🤖"
+echo "   Sistema de Diagnóstico y Mantenimiento v2.1"
+echo "====================================================="
+echo " Fecha: $(date +'%d/%m/%Y') | Hora: $(date +'%H:%M:%S')"
+echo " Usuario: $(whoami) | Equipo: Moto G85 5G"
+echo "====================================================="
+echo ""
+
+# ===========================================================
+# 💾 MÓDULO 1: ANÁLISIS DE ALMACENAMIENTO
+# ===========================================================
+echo "💾 [1/5] ESPACIO EN DISCO:"
+echo "-----------------------------------------------------"
+df -h . | awk 'NR==1 || NR==2 {print "  " $0}'
+echo ""
+
+# ===========================================================
+# 📂 MÓDULO 2: DETECCIÓN DE ARCHIVOS PESADOS
+# ===========================================================
+echo "📂 [2/5] ESCANEANDO ARCHIVOS MÁS GRANDES (TOP 10):"
+echo "-----------------------------------------------------"
+echo "  ⏳ Analizando estructura de archivos..."
+find ~ -type f -exec du -h {} + 2>/dev/null | sort -rh | head -n 10 | awk '{print "  • " $2 " -> " $1}'
+echo "  ✅ Escaneo completado."
+echo ""
+
+# ===========================================================
+# 🌐 MÓDULO 3: PRUEBA DE CONECTIVIDAD A INTERNET
+# ===========================================================
+echo "🌐 [3/5] ESTADO DE LA RED:"
+echo "-----------------------------------------------------"
+if ping -c 2 1.1.1.1 > /dev/null 2>&1; then
+    echo "  🟢 CONEXIÓN: ESTABLE • ACCESO GLOBAL ✅"
+else
+    echo "  🔴 CONEXIÓN: SIN ACCESO O RESTRINGIDA ⚠️"
+fi
+echo ""
+
+# ===========================================================
+# 🔋 MÓDULO 4: MONITOREO DE ENERGÍA Y HARDWARE
+# ===========================================================
+echo "🔋 [4/5] ESTADO DE LA BATERÍA:"
+echo "-----------------------------------------------------"
+SYS_BATT="/sys/class/power_supply/battery"
+if [ -d "$SYS_BATT" ]; then
+    CAPACITY=$(cat "$SYS_BATT"/capacity 2>/dev/null)
+    STATUS=$(cat "$SYS_BATT"/status 2>/dev/null)
+    HEALTH=$(cat "$SYS_BATT"/health 2>/dev/null)
+    echo "  • CARGA: $CAPACITY% | ESTADO: $STATUS"
+    echo "  • SALUD: $HEALTH"
+else
+    echo "  • DATOS: Protegidos por el sistema o instala termux-api"
+fi
+echo ""
+
+# ===========================================================
+# 📦 MÓDULO 5: RESPALDO AUTOMÁTICO INTELIGENTE
+# ===========================================================
+echo "📦 [5/5] EJECUTANDO COPIA DE SEGURIDAD..."
+echo "-----------------------------------------------------"
+mkdir -p ~/salomon_backups
+FECHA_ARCHIVO=$(date +'%Y%m%d_%H%M%S')
+NOMBRE_ARCHIVO="salomon_backup_${FECHA_ARCHIVO}.tar.gz"
+
+tar -czf ~/salomon_backups/$NOMBRE_ARCHIVO -C ~/ ./.termux ./scripts 2>/dev/null
+
+if [ $? -eq 0 ]; then
+    echo "  ✅ RESPALDO CREADO EXITOSAMENTE"
+    echo "     📁 Archivo: $NOMBRE_ARCHIVO"
+    echo "     📂 Ruta: ~/salomon_backups/"
+    echo "     📊 Tamaño: $(du -h ~/salomon_backups/$NOMBRE_ARCHIVO | cut -f1)"
+else
+    echo "  ❌ ERROR: No se pudo generar el respaldo"
+fi
+
+echo ""
+echo "====================================================="
+echo "   🟢 PROCESO FINALIZADO • SISTEMA SALOMÓN 2026"
+echo "   REPOSITORIO: github.com/[TU_USUARIO] 🚀"
+echo "====================================================="
+ 
+ 
+ 
+ 
+📄 2. Archivo:  README.md 
+ 
+(Este es el archivo principal que la gente ve al entrar a tu repositorio)
+ 
+markdown  
+# 🛠️ Termux Salomón Toolbox
+**Sistema de Monitoreo y Mantenimiento Automático para Termux**
+
+![Versión](https://img.shields.io/badge/Versión-2.1-blue.svg)
+![Estado](https://img.shields.io/badge/Estado-Estable-green.svg)
+![Licencia](https://img.shields.io/badge/Licencia-Propietaria-red.svg)
+
+> *"Herramienta diseñada bajo la arquitectura Salomón: automatización, control y eficiencia total."*
+
+---
+
+## 📋 Descripción
+**Termux Salomón Toolbox** es un script Bash todo-en-uno diseñado específicamente para usuarios avanzados de Termux en dispositivos Android. Su función es automatizar el diagnóstico, monitoreo y respaldo de tu entorno de desarrollo sin intervención manual.
+
+Desarrollado por el **Arquitecto José Isaías Álvarez Ramírez**, integra en una sola interfaz limpia y estética todas las herramientas necesarias para mantener tu sistema optimizado y seguro.
+
+---
+
+## ✨ Características Principales
+✅ **Análisis de Almacenamiento:** Muestra el espacio usado y disponible en tiempo real.
+✅ **Detector de Archivos Pesados:** Escanea y lista los 10 archivos que más espacio consumen.
+✅ **Prueba de Conectividad:** Verifica acceso a internet mediante DNS global (1.1.1.1).
+✅ **Monitoreo de Batería:** Estado de carga, salud y flujo de energía del dispositivo.
+✅ **Respaldo Automático:** Crea copias de seguridad comprimidas y etiquetadas por fecha de tus configuraciones y scripts.
+✅ **Modo Totalmente Automático:** Ejecuta todas las funciones sin preguntas ni pausas.
+
+---
+
+## 🚀 Instalación Rápida
+
+1. **Clona el repositorio:**
+```bash
+git clone https://github.com/[TU_USUARIO]/termux-salomon-toolbox.git
+ 
+ 
+2. Entra a la carpeta:
+ 
+bash  
+cd termux-salomon-toolbox
+ 
+ 
+3. Asigna permisos de ejecución:
+ 
+bash  
+chmod +x salomon_toolbox.sh
+ 
+ 
+4. Ejecuta la herramienta:
+ 
+bash  
+./salomon_toolbox.sh
+ 
+ 
+ 
+ 
+📸 Captura de Pantalla
+ 
+(Aquí puedes pegar una captura de cómo se ve en tu terminal)
+ 
+ 
+ 
+⚙️ Configuración
+ 
+El script está preconfigurado para funcionar nada más instalarse. Los respaldos se guardan automáticamente en:
+ ~/salomon_backups/ 
+ 
+ 
+ 
+📄 Licencia
+ 
+Todos los derechos reservados.
+Proyecto privado y propiedad intelectual de José Isaías Álvarez Ramírez.
+Prohibida su reproducción o distribución sin autorización expresa del autor.
+ 
+ 
+ 
+Desarrollado en 2026 • Diseñado para Moto G85 5G y dispositivos de gama alta
+ 
+plaintext  
+
+---
+
+### 📄 3. Archivo: `LICENSE`
+*(Archivo de licencia para proteger tu trabajo)*
+
+```text
+COPYRIGHT © 2026 JOSÉ ISAÍAS ÁLVAREZ RAMÍREZ
+Todos los derechos reservados.
+
+Este software y su código fuente son propiedad intelectual exclusiva del autor.
+Queda prohibido el uso, modificación, distribución, copia o reproducción total o parcial
+de este material sin la autorización escrita y explícita del titular de los derechos.
+
+El software se proporciona tal cual, para uso privado y bajo la responsabilidad del usuario.
+Diseñado bajo la arquitectura Salomón.
+ 
+ 
+ 
+ 
+📝 INSTRUCCIONES PARA SUBIRLO A GITHUB
+ 
+1. Entra a tu cuenta de GitHub y crea un Nuevo Repositorio llamado:  termux-salomon-toolbox .
+2. Marca la casilla "Add a README file" pero no lo crees vacío, copia y pega el contenido que te di arriba.
+3. Sube los 3 archivos:
+-  salomon_toolbox.sh 
+-  README.md 
+-  LICENSE 
+4. ¡Listo! Ya tienes tu proyecto profesional publicado.
+ 
+¿Quieres que te ayude también a configurar el comando para que se pueda instalar desde cualquier terminal con un solo comando tipo  curl  o  wget ? Así cualquiera lo puede bajar directo de tu repositorio.
