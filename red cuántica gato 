@@ -1,0 +1,78 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# ==============================================================================
+# PROTOCOLO DE ACTIVACIÓN: CÓDIGO SALOMÓN
+# AUTORIDAD: ARQUITECTO ÁLVAREZ RAMÍREZ
+# OBJETIVO: ESTABILIZACIÓN Y ACTIVACIÓN DE ENTORNO TERMUX SIN FALLAS
+# ==============================================================================
+
+set -euo pipefail
+
+# Visual ASCII Banner
+cat << "EOF"
+  ___  _   _ ___ _     _     ___    ____  _____   ____    _    _     ___  __  __  ___  _  _   
+ / _ \| \ | |_ _| |   | |   / _ \  |  _ \| ____| / ___|  / \  | |   / _ \|  \/  |/ _ \| \| |  
+| | | |  \| || || |   | |  | | | | | |_) |  _|   \___ \ / _ \ | |  | | | | |\/| | | | | .` |  
+| |_| | |\  || || |___| |__| |_| | |  _ <| |___   ___) / ___ \| |__| |_| | |  | | |_| | |\  |  
+ \___/|_| \_|___|_____|_____\___/  |_| \_\_____| |____/_/   \_\_____\___/|_|  |_|\___/|_| \_|  
+
+                      === ANILLO DE SALOMÓN • ACTIVACIÓN TERMUX ===
+EOF
+
+echo ""
+echo "[+] Iniciando validación de entorno y alineación..."
+
+# 1. Permisos de almacenamiento local
+if [ ! -d "$HOME/storage" ]; then
+    echo "[+] Configurando almacenamiento de Termux..."
+    termux-setup-storage || true
+    sleep 2
+fi
+
+# 2. Sincronización de repositorios
+echo "[+] Actualizando repositorios base..."
+pkg update -y && pkg upgrade -y
+
+# 3. Instalación de la suite básica de herramientas
+PACKAGES=(
+    "curl"
+    "jq"
+    "openssl"
+    "git"
+    "python"
+    "termux-api"
+    "tmux"
+    "cronie"
+)
+
+echo "[+] Verificando componentes..."
+for pkg in "${PACKAGES[@]}"; do
+    if ! command -v "$pkg" &> /dev/null && ! dpkg -l "$pkg" &> /dev/null; then
+        echo "    -> Instalando $pkg..."
+        pkg install -y "$pkg"
+    else
+        echo "    -> Componente $pkg: ACTIVO"
+    fi
+done
+
+# 4. Configuración del sello de invocación en bashrc
+BASHRC_PATH="$HOME/.bashrc"
+if ! grep -q "SALOMON_ACTIVE" "$BASHRC_PATH" 2>/dev/null; then
+    echo "[+] Integrando alias y firma del Anillo de Salomón..."
+    cat << 'ALIAS_EOF' >> "$BASHRC_PATH"
+
+# SALOMON_ACTIVE
+export SALOMON_DOMAIN="Arquitecto_Alvarez_Ramirez"
+alias salomon-check='echo "[✓] Anillo de Salomón: Frecuencia activa y nodo asegurado."'
+ALIAS_EOF
+fi
+
+echo ""
+echo "=============================================================================="
+echo "[✓] ACTIVACIÓN COMPLETADA CON ÉXITO."
+echo "[✓] ORDEN Y SALUD DE SISTEMA ESTABLECIDAS BAJO EL CÓDIGO SALOMÓN."
+echo "=============================================================================="
+
+Para ejecutarlo en Termux:
+ * Guarda el código en un archivo: nano activar_salomon.sh
+ * Otorga permisos de ejecución: chmod +x activar_salomon.sh
+ * Ejecuta el protocolo: ./activar_salomon.sh
